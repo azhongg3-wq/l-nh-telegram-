@@ -41,6 +41,12 @@ Bot Telegram tự động quản lý và bảo vệ nhóm với hơn 30+ tính n
 - ✅ **Tự Động Xóa**: Tự động xóa tin nhắn sau thời gian cấu hình
 - ✅ **Biến Động**: Hỗ trợ các biến như `{mention}`, `{username}`, `{chat_title}`, v.v.
 
+### ⚙️ Cấu Hình Linh Hoạt
+- ✅ **Cấu Hình Riêng Cho Từng Nhóm**: Mỗi nhóm có cấu hình riêng
+- ✅ **Bật/Tắt Từng Tính Năng**: Dễ dàng bật/tắt từng tính năng
+- ✅ **Hỗ Trợ 100+ Nhóm**: Có thể quản lý nhiều nhóm cùng lúc
+- ✅ **Database PostgreSQL**: Lưu trữ dữ liệu an toàn và hiệu quả
+- ✅ **Cache**: Hệ thống cache để tối ưu hiệu năng
 
 ## 📖 Commands
 
@@ -103,96 +109,40 @@ Gửi ảnh/video với caption: `setwelcome Chào mừng {mention}!` (không c�
 | `/config goodbyedelay <số giây>` | Thời gian tự động xóa goodbye (0 = tắt) | **Admin** | `/config goodbyedelay 45` |
 | `/config warndelay <số giây>` | Thời gian tự động xóa warning (0 = tắt) | **Admin** | `/config warndelay 120` |
 
-**📋 Các Tùy Chọn Cấu Hình:**
+**Các tùy chọn cấu hình:**
 
-**🔹 Cơ Bản:**
-- `forwards` - Chặn tin nhắn được forward từ nhóm/channel khác
-  - **Ví dụ:** `/config forwards on` - Bật chặn forward
-  - **Mô tả:** Tự động xóa tin nhắn được forward từ nguồn khác
-- `inline` - Chặn tin nhắn từ inline bot (bot được gọi bằng @)
-  - **Ví dụ:** `/config inline on` - Bật chặn inline bot
-  - **Mô tả:** Chặn tin nhắn từ các inline bot như @gif, @vid, @pic, v.v.
-- `ban` - Tự động đuổi user vi phạm khỏi nhóm (user có thể tham gia lại)
-  - **Ví dụ:** `/config ban on` - Bật tự động ban khi vi phạm
-  - **Mô tả:** Tự động đuổi user khi vượt quá số lần cảnh báo
+**Cơ bản:**
+- `forwards` - Chặn forward
+- `inline` - Chặn inline bot
+- `ban` - Đuổi user vi phạm (có thể tham gia lại)
 
-**🔹 Text & Nội Dung:**
-- `links` - Chặn link/URL đầy đủ (http://, https://)
-  - **Ví dụ:** `/config links on` - Bật chặn link
-  - **Mô tả:** Chặn các link như `https://example.com`, `http://test.com`
-- `domains` - Chặn tất cả domain (kể cả không có http://)
-  - **Ví dụ:** `/config domains on` - Bật chặn domain (mặc định bật)
-  - **Mô tả:** Chặn domain như `example.com`, `www.test.com` (kể cả không có http://)
-  - **💡 Lưu ý:** Dùng `/adddomain` để thêm domain được phép (whitelist)
+**Text:**
+- `links` - Chặn link/URL
 - `mentions` - Chặn mention (@username)
-  - **Ví dụ:** `/config mentions on` - Bật chặn mention
-  - **Mô tả:** Chặn tin nhắn có chứa @username
-- `hashtags` - Chặn hashtag (#tag)
-  - **Ví dụ:** `/config hashtags on` - Bật chặn hashtag
-  - **Mô tả:** Chặn tin nhắn có chứa hashtag như #spam, #ad
-- `emoji` - Chặn emoji trong tin nhắn
-  - **Ví dụ:** `/config emoji on` - Bật chặn emoji
-  - **Mô tả:** Chặn tin nhắn có chứa emoji
-- `phone` - Chặn số điện thoại trong tin nhắn
-  - **Ví dụ:** `/config phone on` - Bật chặn số điện thoại
-  - **Mô tả:** Chặn tin nhắn có chứa số điện thoại
-- `email` - Chặn địa chỉ email trong tin nhắn
-  - **Ví dụ:** `/config email on` - Bật chặn email
-  - **Mô tả:** Chặn tin nhắn có chứa email như `test@example.com`
-- `caption` - Chặn caption (chú thích) của ảnh/video
-  - **Ví dụ:** `/config caption on` - Bật chặn caption
-  - **Mô tả:** Chặn caption của ảnh/video (không chặn ảnh/video)
+- `hashtags` - Chặn hashtag
+- `emoji` - Chặn emoji
+- `phone` - Chặn số điện thoại
+- `email` - Chặn email
+- `caption` - Chặn caption
 
-**🔹 Media:**
+**Media:**
 - `stickers` - Chặn sticker
-  - **Ví dụ:** `/config stickers on` - Bật chặn sticker
-  - **Mô tả:** Chặn tất cả sticker
-- `gifs` - Chặn GIF (ảnh động)
-  - **Ví dụ:** `/config gifs on` - Bật chặn GIF
-  - **Mô tả:** Chặn GIF animation
-- `media` - Chặn tất cả media (ảnh, video, audio, voice, document)
-  - **Ví dụ:** `/config media on` - Bật chặn tất cả media
-  - **Mô tả:** Chặn tất cả loại media (ảnh, video, audio, voice, file)
+- `gifs` - Chặn GIF
+- `media` - Chặn tất cả media
 - `photos` - Chặn ảnh
-  - **Ví dụ:** `/config photos on` - Bật chặn ảnh
-  - **Mô tả:** Chặn ảnh (không chặn sticker/GIF)
 - `videos` - Chặn video
-  - **Ví dụ:** `/config videos on` - Bật chặn video
-  - **Mô tả:** Chặn video
-- `audio` - Chặn file audio
-  - **Ví dụ:** `/config audio on` - Bật chặn audio
-  - **Mô tả:** Chặn file audio (nhạc, podcast, v.v.)
-- `voice` - Chặn tin nhắn voice
-  - **Ví dụ:** `/config voice on` - Bật chặn voice
-  - **Mô tả:** Chặn tin nhắn voice (ghi âm)
-- `documents` - Chặn file đính kèm
-  - **Ví dụ:** `/config documents on` - Bật chặn file
-  - **Mô tả:** Chặn file đính kèm (PDF, DOC, ZIP, v.v.)
+- `audio` - Chặn audio
+- `voice` - Chặn voice
+- `documents` - Chặn file
 
-**🔹 Khác:**
-- `spam` - Chống spam tự động (phát hiện spam và xóa)
-  - **Ví dụ:** `/config spam on` - Bật chống spam
-  - **Mô tả:** Tự động phát hiện và xóa spam (5 tin nhắn trong 10 giây)
-- `bots` - Chặn tin nhắn từ bot khác
-  - **Ví dụ:** `/config bots on` - Bật chặn bot khác
-  - **Mô tả:** Chặn tin nhắn từ các bot khác (trừ bot này)
-- `channels` - Chặn bài đăng từ channel (không phải channel liên kết)
-  - **Ví dụ:** `/config channels on` - Bật chặn channel post
-  - **Mô tả:** Chặn bài đăng từ channel khác (cho phép channel liên kết)
-- `warn` - Bật/tắt hệ thống cảnh báo (warn system)
-  - **Ví dụ:** `/config warn on` - Bật hệ thống cảnh báo
-  - **Mô tả:** Bật hệ thống cảnh báo khi user vi phạm (mặc định: 2 lần cảnh báo)
-- `welcome` - Bật/tắt tin nhắn chào mừng khi user tham gia
-  - **Ví dụ:** `/config welcome on` - Bật tin nhắn chào mừng
-  - **Mô tả:** Gửi tin nhắn chào mừng khi user tham gia nhóm
-- `goodbye` - Bật/tắt tin nhắn tạm biệt khi user rời nhóm
-  - **Ví dụ:** `/config goodbye on` - Bật tin nhắn tạm biệt
-  - **Mô tả:** Gửi tin nhắn tạm biệt khi user rời nhóm
-- `join` - Xóa thông báo tham gia/thoát nhóm tự động
-  - **Ví dụ:** `/config join on` - Bật xóa thông báo join/leave
-  - **Mô tả:** Tự động xóa thông báo "User joined/left" của Telegram
-
-```
+**Khác:**
+- `spam` - Chống spam
+- `bots` - Chặn bot khác
+- `channels` - Chặn channel post
+- `warn` - Bật/tắt hệ thống cảnh báo
+- `welcome` - Bật/tắt tin nhắn chào mừng
+- `goodbye` - Bật/tắt tin nhắn tạm biệt
+- `join` - Xóa thông báo tham gia/thoát nhóm
 
 ## ⚙️ Cấu Hình Chi Tiết
 
@@ -239,16 +189,6 @@ Tất cả tính năng mặc định đều **BẬT**. Bạn có thể tắt t�
 /config goodbyedelay 0    # Tắt tự động xóa goodbye
 ```
 
-**Các bảng:**
-- `group_configs` - Cấu hình cho từng nhóm
-- `whitelist_groups` - Danh sách nhóm whitelist
-- `blacklist_groups` - Danh sách nhóm blacklist
-- `whitelist_users` - Danh sách user whitelist
-- `blacklist_users` - Danh sách user blacklist
-- `spam_history` - Lịch sử spam
-- `warnings` - Cảnh báo user
-- `banned_users` - User bị ban vĩnh viễn
-- `muted_users` - User bị mute
 
 ### ⚠️ Tất Cả Commands Yêu Cầu Admin
 **TẤT CẢ** các commands đều yêu cầu quyền **Admin** trong nhóm:
@@ -261,4 +201,3 @@ Tất cả tính năng mặc định đều **BẬT**. Bạn có thể tắt t�
 - `/ban`, `/unban`, `/mute`, `/unmute` - Quản lý user
 - `/setwelcome`, `/setgoodbye` - Thiết lập welcome/goodbye
 
-*
