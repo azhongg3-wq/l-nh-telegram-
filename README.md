@@ -74,8 +74,12 @@ Bot Telegram tự động quản lý và bảo vệ nhóm với hơn 30+ tính n
 | `/listdomains` | Xem danh sách tất cả domain được phép (khi có domain trong whitelist, chỉ domain đó được phép) | `/listdomains` |
 | `/setwelcome <tin nhắn>` | Thiết lập tin nhắn chào mừng khi user tham gia nhóm | `/setwelcome Chào mừng {mention} đến với {chat_title}!` |
 | `/setwelcome clear` | Xóa media/ảnh đính kèm của welcome message | `/setwelcome clear` |
+| `/setwelcome clearbuttons` | Xóa buttons của welcome message | `/setwelcome clearbuttons` |
 | `/setwelcome buttons <format>` | Thiết lập inline buttons cho welcome message | `/setwelcome buttons Trang chủ\|https://example.com,Liên hệ\|https://example.com/contact` |
 | `/setgoodbye <tin nhắn>` | Thiết lập tin nhắn tạm biệt khi user rời nhóm | `/setgoodbye Tạm biệt {full_name}!` |
+| `/setgoodbye clear` | Xóa media/ảnh đính kèm của goodbye message | `/setgoodbye clear` |
+| `/setgoodbye clearbuttons` | Xóa buttons của goodbye message | `/setgoodbye clearbuttons` |
+| `/setgoodbye buttons <format>` | Thiết lập inline buttons cho goodbye message | `/setgoodbye buttons Trang chủ\|https://example.com` |
 | `/config` | Xem danh sách tất cả tùy chọn cấu hình | `/config` |
 | `/config <tùy chọn> <on/off>` | Bật/tắt tính năng cụ thể | `/config links on`<br>`/config spam off`<br>`/config stickers on` |
 | `/config warnaction <ban/mute/none>` | Thiết lập hành động khi user vượt warn_limit | `/config warnaction ban`<br>`/config warnaction mute`<br>`/config warnaction none` |
@@ -96,8 +100,65 @@ Bot Telegram tự động quản lý và bảo vệ nhóm với hơn 30+ tính n
 - `{full_name}` - Tên đầy đủ
 - `{chat_title}` - Tên nhóm
 
-**Đính kèm media:**
-Gửi ảnh/video với caption: `setwelcome Chào mừng {mention}!` (không cần dấu `/`)
+**Cách sử dụng:**
+
+**1. Chỉ text (tin nhắn đơn giản):**
+```
+/setwelcome Chào mừng {mention} đến với {chat_title}! 🎉
+/setgoodbye Tạm biệt {full_name}! 👋
+```
+
+**2. Text + Media (ảnh/video/GIF):**
+- Gửi ảnh/video/GIF với caption (không cần dấu `/`):
+```
+setwelcome Chào mừng {mention} đến với {chat_title}! 🎉
+setgoodbye Tạm biệt {full_name}! 👋
+```
+
+**3. Text + Buttons (tin nhắn có nút bấm):**
+- Cách 1: Set text trước, sau đó set buttons:
+```
+/setwelcome Chào mừng {mention} đến với {chat_title}! 🎉
+/setwelcome buttons Trang chủ|https://example.com,Liên hệ|https://example.com/contact
+```
+
+- Cách 2: Set text + buttons cùng lúc (dùng dấu `|` để phân cách):
+```
+/setwelcome Chào mừng {mention}! | buttons: Trang chủ|https://example.com,Liên hệ|https://example.com/contact
+```
+
+**4. Text + Media + Buttons (đầy đủ):**
+- Gửi ảnh/video với caption:
+```
+setwelcome Chào mừng {mention} đến với {chat_title}! 🎉 | buttons: Trang chủ|https://example.com,Liên hệ|https://example.com/contact
+```
+
+**Format Buttons:**
+- Format: `Text|URL,Text2|URL2`
+- Mỗi dòng là một hàng buttons
+- Mỗi button cách nhau bằng dấu phẩy `,`
+- Format button: `Tên Button|URL` (dùng dấu `|` để phân cách)
+
+**Ví dụ buttons:**
+```
+# 1 hàng, 2 buttons:
+/setwelcome buttons Trang chủ|https://example.com,Liên hệ|https://example.com/contact
+
+# 2 hàng, mỗi hàng 1 button:
+/setwelcome buttons Trang chủ|https://example.com
+/setwelcome buttons Liên hệ|https://example.com/contact
+
+# 1 hàng, 3 buttons:
+/setwelcome buttons Trang chủ|https://example.com,Facebook|https://facebook.com/group,Telegram|https://t.me/group
+```
+
+**Xóa media hoặc buttons:**
+```
+/setwelcome clear          # Xóa media/ảnh đính kèm
+/setwelcome clearbuttons  # Xóa buttons
+/setgoodbye clear          # Xóa media/ảnh đính kèm
+/setgoodbye clearbuttons  # Xóa buttons
+```
 
 **Các tùy chọn cấu hình `/config`:**
 
