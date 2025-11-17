@@ -203,15 +203,13 @@ Tất cả tính năng mặc định đều **BẬT**. Bạn có thể tắt t�
 - **Hành động khi vượt limit**: Ban (có thể đổi thành mute hoặc none)
 - **Tự động xóa cảnh báo**: 60 giây (có thể cấu hình)
 
-**Cấu hình:**
-```
-/config warn on          # Bật hệ thống cảnh báo
-/config warnaction ban   # Ban khi vượt limit
-/config warnaction mute  # Mute khi vượt limit
-/config warnaction none  # Chỉ cảnh báo, không ban/mute
-/config warndelay 120    # Xóa cảnh báo sau 120 giây
-/config warndelay 0       # Tắt tự động xóa
-```
+| Command | Mô Tả | Ví Dụ |
+|---------|-------|-------|
+| `/config warn on/off` | Bật/tắt hệ thống cảnh báo (warn) | `/config warn on`<br>`/config warn off` |
+| `/config warnaction ban` | Thiết lập hành động: Ban user khi vượt warn_limit | `/config warnaction ban` |
+| `/config warnaction mute` | Thiết lập hành động: Mute user khi vượt warn_limit | `/config warnaction mute` |
+| `/config warnaction none` | Thiết lập hành động: Chỉ cảnh báo, không ban/mute | `/config warnaction none` |
+| `/config warndelay <số giây>` | Thiết lập thời gian tự động xóa warning message (0 = tắt tự động xóa) | `/config warndelay 120`<br>`/config warndelay 0` |
 
 ### Chống Spam
 
@@ -219,18 +217,16 @@ Tất cả tính năng mặc định đều **BẬT**. Bạn có thể tắt t�
 - **Threshold**: 5 tin nhắn trong 10 giây
 - **Hành động**: Xóa tin nhắn và cảnh báo user
 
-**Cấu hình:**
-```
-/config spam on    # Bật chống spam
-/config spam off   # Tắt chống spam
-```
+| Command | Mô Tả | Ví Dụ |
+|---------|-------|-------|
+| `/config spam on` | Bật chống spam tự động | `/config spam on` |
+| `/config spam off` | Tắt chống spam | `/config spam off` |
 
 ### Welcome/Goodbye Messages
 
 **Cấu hình thời gian tự động xóa:**
-```
-/config welcomedelay 30   # Xóa welcome sau 30 giây
-/config welcomedelay 0    # Tắt tự động xóa welcome
-/config goodbyedelay 45   # Xóa goodbye sau 45 giây
-/config goodbyedelay 0    # Tắt tự động xóa goodbye
-```
+
+| Command | Mô Tả | Ví Dụ |
+|---------|-------|-------|
+| `/config welcomedelay <số giây>` | Thiết lập thời gian tự động xóa welcome message (0 = tắt tự động xóa) | `/config welcomedelay 30`<br>`/config welcomedelay 0` |
+| `/config goodbyedelay <số giây>` | Thiết lập thời gian tự động xóa goodbye message (0 = tắt tự động xóa) | `/config goodbyedelay 45`<br>`/config goodbyedelay 0` |
