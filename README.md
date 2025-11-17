@@ -120,17 +120,22 @@ setgoodbye Tạm biệt {full_name}! 👋
 ```
 /setwelcome Chào mừng {mention} đến với {chat_title}! 🎉
 /setwelcome buttons Trang chủ|https://example.com,Liên hệ|https://example.com/contact
+
+/setgoodbye Tạm biệt {full_name}! 👋
+/setgoodbye buttons Trang chủ|https://example.com
 ```
 
 - Cách 2: Set text + buttons cùng lúc (dùng dấu `|` để phân cách):
 ```
 /setwelcome Chào mừng {mention}! | buttons: Trang chủ|https://example.com,Liên hệ|https://example.com/contact
+/setgoodbye Tạm biệt {full_name}! | buttons: Trang chủ|https://example.com
 ```
 
 **4. Text + Media + Buttons (đầy đủ):**
 - Gửi ảnh/video với caption:
 ```
 setwelcome Chào mừng {mention} đến với {chat_title}! 🎉 | buttons: Trang chủ|https://example.com,Liên hệ|https://example.com/contact
+setgoodbye Tạm biệt {full_name}! 👋 | buttons: Trang chủ|https://example.com
 ```
 
 **Format Buttons:**
@@ -139,10 +144,11 @@ setwelcome Chào mừng {mention} đến với {chat_title}! 🎉 | buttons: Tra
 - Mỗi button cách nhau bằng dấu phẩy `,`
 - Format button: `Tên Button|URL` (dùng dấu `|` để phân cách)
 
-**Ví dụ buttons:**
+**Ví dụ buttons (áp dụng cho cả welcome và goodbye):**
 ```
 # 1 hàng, 2 buttons:
 /setwelcome buttons Trang chủ|https://example.com,Liên hệ|https://example.com/contact
+/setgoodbye buttons Trang chủ|https://example.com,Liên hệ|https://example.com/contact
 
 # 2 hàng, mỗi hàng 1 button:
 /setwelcome buttons Trang chủ|https://example.com
@@ -150,6 +156,7 @@ setwelcome Chào mừng {mention} đến với {chat_title}! 🎉 | buttons: Tra
 
 # 1 hàng, 3 buttons:
 /setwelcome buttons Trang chủ|https://example.com,Facebook|https://facebook.com/group,Telegram|https://t.me/group
+/setgoodbye buttons Trang chủ|https://example.com,Facebook|https://facebook.com/group,Telegram|https://t.me/group
 ```
 
 **Xóa media hoặc buttons:**
